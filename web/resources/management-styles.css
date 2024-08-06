@@ -1,0 +1,12 @@
+#et-management-table,
+#et-management-table tr,
+#et-management-table th,
+#et-management-table td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 4px;
+}
+
+button {
+	font-size: 16pt;
+}

@@ -1,0 +1,22 @@
+body {
+	font-size: 22px;
+}
+
+.et-error {
+	color: red;
+	font-weight: bold;
+}
+
+.content-wrapper {
+	margin: auto;
+	width: 60%;
+}
+
+#et-navbar {
+	border: 3px solid blue;
+	display: flex;
+	justify-content: space-around;
+}
+#et-navbar a {
+	text-decoration: none;
+}

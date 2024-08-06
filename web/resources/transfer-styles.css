@@ -1,0 +1,21 @@
+#et-transfer-content--label {
+	display: inline-block;
+	padding-top: 10px;
+}
+
+#et-transfer-content,
+#et-tranferred-text {
+	resize: vertical;
+	min-height: 150px;
+	width: 100%;
+	font-size: 16px;
+}
+
+#et-transfer-QR {
+	padding-top: 20px;
+	text-align: center;
+}
+
+#et-transfer-save {
+	float: right;
+}
