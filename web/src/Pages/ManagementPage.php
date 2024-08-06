@@ -104,13 +104,20 @@ class ManagementPage extends BasePage {
 		// We want to either upgrade or downgrade the user with the $manageUser
 		// user id
 		$manageUserObj = $this->db->getAccountById( $manageUser );
-		$userEmail = $manageUserObj->getEmail();
+		$userEmail = HTMLBuilder::element(
+			'code',
+			$manageUserObj->getEmail()
+		);
 		if ( $manageAction === 'upgrade' ) {
 			if ( $manageUserObj->hasFlag( UserAccount::FLAG_PREMIUM ) ) {
 				$this->addBodyElement(
 					HTMLBuilder::element(
 						'p',
-						"Unable to upgrade: `$userEmail` is already marked as premium",
+						[
+							"Unable to upgrade:",
+							$userEmail,
+							"is already marked as premium.",
+						],
 						[ 'class' => 'et-error' ]
 					)
 				);
@@ -123,7 +130,12 @@ class ManagementPage extends BasePage {
 			$this->addBodyElement(
 				HTMLBuilder::element(
 					'p',
-					[ "Upgraded `$userEmail` to premium.", $returnLink ]
+					[
+						"Upgraded",
+						$userEmail,
+						"to premium.",
+						$returnLink,
+					]
 				)
 			);
 			return true;
@@ -133,7 +145,11 @@ class ManagementPage extends BasePage {
 			$this->addBodyElement(
 				HTMLBuilder::element(
 					'p',
-					"Unable to downgrade: `$userEmail` is not marked as premium",
+					[
+						"Unable to downgrade:",
+						$userEmail,
+						"is not marked as premium.",
+					],
 					[ 'class' => 'et-error' ]
 				)
 			);
@@ -146,7 +162,12 @@ class ManagementPage extends BasePage {
 		$this->addBodyElement(
 			HTMLBuilder::element(
 				'p',
-				[ "Downgraded `$userEmail` to regular account.", $returnLink ]
+				[
+					"Downgraded",
+					$userEmail,
+					"to regular account.",
+					$returnLink,
+				]
 			)
 		);
 		return true;
@@ -166,7 +187,10 @@ class ManagementPage extends BasePage {
 		$tableCells[] = HTMLBuilder::element( 'td', (string)$user->user_id );
 
 		// User email
-		$tableCells[] = HTMLBuilder::element( 'td', (string)$user->user_email );
+		$tableCells[] = HTMLBuilder::element(
+			'td',
+			HTMLBuilder::element( 'code', (string)$user->user_email )
+		);
 
 		$premiumFlag = UserAccount::FLAG_PREMIUM;
 		$isPremium = ( $user->user_flags & $premiumFlag ) === $premiumFlag;

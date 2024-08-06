@@ -10,3 +10,14 @@
 button {
 	font-size: 16pt;
 }
+
+code {
+	background-color: #c9c9c9;
+}
+#et-management-table code {
+	background-color: unset;
+}
+.et-error code {
+	background-color: unset;
+	color: black;
+}
