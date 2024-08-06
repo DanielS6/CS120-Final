@@ -45,7 +45,7 @@ class Transfer {
 		);
 	}
 
-	public static function newFromDatabase( string $fromDb ) {
+	public static function newFromDatabase( string $fromDb ): Transfer {
 		$type = TransferType::from( $fromDb[0] );
 		$created = new DateTimeImmutable(
 			substr( $fromDb, 2, 14 ),
