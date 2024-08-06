@@ -12,6 +12,13 @@ body {
 	width: 60%;
 }
 
+/* Responsive styles */
+@media (max-width: 900px) {
+	.content-wrapper {
+		width: 80%;
+	}
+}
+
 #et-navbar {
 	border: 3px solid blue;
 	display: flex;

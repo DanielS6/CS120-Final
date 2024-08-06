@@ -21,3 +21,15 @@ code {
 	background-color: unset;
 	color: black;
 }
+
+/* Responsive styles */
+@media (max-width: 800px) {
+	#et-management-table th:first-child,
+	#et-management-table td:first-child {
+		display: none;
+	}
+	#et-management-table code,
+	#et-management-table button {
+		font-size: 12pt;
+	}
+}
